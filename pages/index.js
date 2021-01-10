@@ -1,10 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/global.module.css'
-import CardGallery from '../components/card_gallery/card_gallery'
 import NavBar from '../components/navbar/navbar'
 import React, { Component } from 'react'
-
-import Home from '../pages/Home/home'
 import About from '../pages/About/about'
 import Imoveis from '../pages/Imoveis/imoveis'
 
@@ -17,7 +14,7 @@ class Index extends Component {
         active: true,
         headerActive: false
       },
-      activePage: 'destaques',
+      activePage: '',
       imoveisData: [{}],
       user:{
         sessionId: '',
@@ -25,7 +22,10 @@ class Index extends Component {
       }
     };
   }
-
+  componentDidMount() {
+    this.setState({activePage:'destaques'})
+  }
+  
   handleMenuEvt(evt){
     this.setState({activePage: evt.currentTarget.hash.replace('#/', '').toLowerCase() });
   }
@@ -53,16 +53,14 @@ class Index extends Component {
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"></link>
         </Head>
 
         <main className={styles.main}>
           <NavBar userName={this.state.user.userName} page={this.activePage} loginClick={this.handleLoginEvt.bind(this)} menuClickEvt={this.handleMenuEvt.bind(this)}/>
-        
           {
-            this.state.activePage === 'destaques' ?  <CardGallery /> : this.state.activePage === 'home' ? <Home /> : this.state.activePage === 'about' ? <About /> : <Imoveis />
+           this.state.activePage === 'about' ? <About /> : <Imoveis />
           }
-
-         
         </main>
 
         <footer className={styles.footer}>

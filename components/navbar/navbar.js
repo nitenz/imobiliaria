@@ -1,5 +1,4 @@
 import styles from '../../styles/global.module.css'
-import LoginDialog from '../../components/login_dialog/login_dialog'
 import React, { Component } from 'react';
 
 class NavBar extends Component {
@@ -42,9 +41,6 @@ class NavBar extends Component {
           <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a onClick={this.props.menuClickEvt} className="nav-link" href="#/home">Início</a>
-              </li>
-              <li className="nav-item">
                 <a onClick={this.props.menuClickEvt} className="nav-link" href="#/about">Sobre</a>
               </li>
               <li className="nav-item">
@@ -53,7 +49,6 @@ class NavBar extends Component {
             </ul>
           </div>
           <span className={styles.username}>{this.props.userName}</span>
-          <LoginDialog userName={this.props.userName} loginClick={this.props.loginClick}/>
         </nav>
       </div>
     )

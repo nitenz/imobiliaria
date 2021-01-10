@@ -13,13 +13,31 @@ class Card extends Component {
     };
   }
 
+  componentDidMount() {
+  }
+
   render() {
+    var images = [];
+    var that = this;
+
+    this.props.images.map(function(value,idx){
+      images.push(<img src={value} onClick={that.props.handleClick} key={idx} className={styles.img_size + ' img-fluid'}  alt="teste"></img>)
+   })
+
     return (
-        <div>
-            <a className={styles.card + ' card' }>
-                <h3>{this.props.title} &rarr;</h3>
-                <p>{this.props.text}</p>
-            </a>
+        <div >
+            <div id={this.props.id} className={styles.card_container} >
+              <a className={styles.card + ' card' }>
+                  <h3>Preço: {this.props.price}</h3>
+                  
+                  <p>Area: {this.props.area}m2</p>
+                  <p>Quartos:{this.props.tipologia}</p>
+
+                  <div>
+                    {images}
+                  </div>
+              </a>
+            </div>
         </div>
     );
   }

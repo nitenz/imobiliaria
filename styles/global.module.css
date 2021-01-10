@@ -135,4 +135,39 @@
   }
 }
 
+.img_size{
+  width: 200px;
+  height: 200px;
+  margin: 1px;
+}
+.modal-body .img_size{
+    height: 250px;
+    width: 250px;
+}
+.card_container:hover{
+  cursor: pointer;
+}
 
+.teste{
+  height: 700px;
+  width: 700px;
+}
+
+.dialog_styles{
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close_btn_dialog{
+  position: absolute;
+  right: 0px;
+  top: -52px;
+  font-size: 45px;
+}
+
+.close_btn_dialog:hover{
+  cursor: pointer;
+}
